@@ -1,15 +1,16 @@
 package DataBase;
 
 import java.math.BigInteger;
-import java.security.*;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class Connection {
 
     public String getapiKey(){
         String apiKey;
         String timestamp = "1";
-        String publicKey = "38dc3d87f051333c060ff8251b9843e5";
-        String privateKey = "043126e28959d3453b2e09a3ba981160ce833ea9";
+        String publicKey = "";
+        String privateKey = "";
         String hash;
 
         hash = getMD5(timestamp+privateKey+publicKey);
