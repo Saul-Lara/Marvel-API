@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.aboutController">
+   <children>
+      <JFXButton layoutX="14.0" layoutY="14.0" onMouseClicked="#onBackButtonClicked" text="Back">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/icon_left.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="549.0" layoutY="14.0" onMouseClicked="#onExitButtonClicked" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/icon_exit.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
