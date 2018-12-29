@@ -8,4 +8,12 @@ public class ComicsTable {
 
         return URL;
     }
+
+    public String comicId(int comicId) {
+        String URL;
+
+        URL = "/v1/public/comics/" + comicId + "?";
+
+        return URL;
+    }
 }

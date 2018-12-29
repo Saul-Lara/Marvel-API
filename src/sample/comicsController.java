@@ -1,8 +1,12 @@
 package sample;
 
+import DataBase.ComicsTable;
+import DataBase.Connection;
 import Tables.Comics;
 import com.jfoenix.controls.JFXButton;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -134,9 +138,40 @@ public class comicsController implements Initializable{
 
         JFXButton button = new JFXButton("More Information");
         button.setStyle("-fx-background-color: #1dacf4; -fx-text-fill: white; -fx-font-size: 14px;");
+        button.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Connection cnx = new Connection();
+                String URL = "https://gateway.marvel.com";
+                String apiKey = cnx.getapiKey();
+                String comicInfo;
 
-        button.setOnAction(E -> {
-            System.out.println(comics.get(count).getComicId());
+                ComicsTable comics_table = new ComicsTable();
+                comicInfo = URL + comics_table.comicId(comics.get(count).getComicId()) + apiKey;
+
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("comicInfo.fxml"));
+                Parent comic = null;
+                try {
+                    comic = loader.load();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                Scene comicScene = new Scene(comic);
+
+                // Access the controller and call a method
+                comicInfoController controller = loader.getController();
+                try {
+                    controller.initData(comicInfo);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                window.setScene(comicScene);
+                window.show();
+            }
         });
 
 
