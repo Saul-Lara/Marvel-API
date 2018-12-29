@@ -69,10 +69,7 @@ public class comicsController implements Initializable{
     public void initData(String URL) throws Exception {
         searchURL = URL;
         callServer(searchURL);
-
-        System.out.println("Status: "+ marvelJson.getString("status"));
         linkMarvel.setText(marvelJson.getString("attributionText"));
-
         createComponents();
     }
 

@@ -4,11 +4,18 @@ public class Comics {
     private String title;
     private String pathImage;
     private int comicId;
+    private String description;
 
-    public Comics(String title, String path, int comicId) {
+    public Comics(String title, String path, int comicId) { // Basic Information of Comic
         this.title = title;
         this.pathImage = path;
         this.comicId = comicId;
+    }
+
+    public Comics(String title, String path, String description) {    // Detalled information of Comic
+        this.title = title;
+        this.pathImage = path;
+        this.description = description;
     }
 
     public String getTitle() {
@@ -21,5 +28,9 @@ public class Comics {
 
     public int getComicId() {
         return comicId;
+    }
+
+    public String getDescription() {
+        return description;
     }
 }
